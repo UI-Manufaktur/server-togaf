@@ -1,0 +1,13 @@
+{
+  "server_name":"server-cms",  
+  "serverMode":"debug",  
+  "httpMode":"OnlyHttp",  
+	"httpPort":9110,
+  "httpAddresses": ["::1", "127.0.0.1"],
+  "httpLogformat":"%h - %u %t \"%r\" %s %b \"%{Referer}i\" \"%{User-Agent}i\"",
+	"httpsPort":9110,
+  "httpsAddresses": ["::1", "127.0.0.1"],
+  "httpsLogformat":"%h - %u %t \"%r\" %s %b \"%{Referer}i\" \"%{User-Agent}i\"",
+  "tlsChain":"/etc/letsencrypt/live/ui-manufaktur.com/fullchain.pem",
+  "tlsPrivate":"/etc/letsencrypt/live/ui-manufaktur.com/privkey.pem"
+}

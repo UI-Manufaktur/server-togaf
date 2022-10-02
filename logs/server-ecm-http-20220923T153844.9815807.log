@@ -1,0 +1,1 @@
+{ "app":"server-ecm", "ipaddress":"127.0.0.1:49472", "timerequest":"2022-Sep-23 13:43:28.4780903Z", "getrequest":"GET / HTTP/1.1", "statuscode":404, "sizeresponse":80, "referer":"-", "useragent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"}
