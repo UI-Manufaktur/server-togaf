@@ -17,6 +17,7 @@ public import uim.mvc;
 
 // server-ecm packages
 public import servers.togaf.controllers;
+public import servers.togaf.layouts;
 public import servers.togaf.views;
 
 public import models.systems;
@@ -31,8 +32,9 @@ string[size_t] errorMessages;
 static this() {
   thisApplication = MVCApplication
     .rootPath("/")
-    .addRoute(MVCRoute("index",       HTTPMethod.GET, TGFIndexPageController))
-
+    .layout(new DTGFGeneralLayout)
+    .addRoute(MVCRoute("index",       HTTPMethod.GET, TGFIndexPageController.layout(new DTGFGeneralLayout)))
+    // Routing for GBBs
     .addRoute(MVCRoute("gbbs",        HTTPMethod.GET, TGFGbbIndexPageController))
     .addRoute(MVCRoute("gbbs/create", HTTPMethod.GET, TGFGbbCreatePageController))
     .addRoute(MVCRoute("gbbs/create_action", HTTPMethod.POST, TGFGbbCreateActionController))
@@ -41,7 +43,7 @@ static this() {
     .addRoute(MVCRoute("gbbs/update_action", HTTPMethod.POST, TGFGbbUpdateActionController))
     .addRoute(MVCRoute("gbbs/delete", HTTPMethod.GET, TGFGbbDeletePageController))
     .addRoute(MVCRoute("gbbs/delete_action", HTTPMethod.POST, TGFGbbDeleteActionController))
-    
+    // Routing for ABBs    
     .addRoute(MVCRoute("abbs",        HTTPMethod.GET, TGFAbbIndexPageController))
     .addRoute(MVCRoute("abbs/create", HTTPMethod.GET, TGFAbbCreatePageController))
     .addRoute(MVCRoute("abbs/create_action", HTTPMethod.POST, TGFAbbCreateActionController))
@@ -50,7 +52,7 @@ static this() {
     .addRoute(MVCRoute("abbs/update_action", HTTPMethod.POST, TGFAbbUpdateActionController))
     .addRoute(MVCRoute("abbs/delete", HTTPMethod.GET, TGFAbbDeletePageController))
     .addRoute(MVCRoute("abbs/delete_action", HTTPMethod.POST, TGFAbbDeleteActionController))
-    
+    // Routing for LBBs
     .addRoute(MVCRoute("lbbs",        HTTPMethod.GET, TGFLbbIndexPageController))
     .addRoute(MVCRoute("lbbs/create", HTTPMethod.GET, TGFLbbCreatePageController))
     .addRoute(MVCRoute("lbbs/create_action", HTTPMethod.POST, TGFLbbCreateActionController))
