@@ -33,7 +33,7 @@ static this() {
   thisApplication = MVCApplication
     .rootPath("/")
     .layout(new DTGFGeneralLayout)
-    .addRoute(MVCRoute("index",       HTTPMethod.GET, TGFIndexPageController.layout(new DTGFGeneralLayout)))
+    .addRoute(MVCRoute("/",       HTTPMethod.GET, TGFIndexPageController.layout(new DTGFGeneralLayout)))
     // Routing for GBBs
     .addRoute(MVCRoute("gbbs",        HTTPMethod.GET, TGFGbbIndexPageController))
     .addRoute(MVCRoute("gbbs/create", HTTPMethod.GET, TGFGbbCreatePageController))

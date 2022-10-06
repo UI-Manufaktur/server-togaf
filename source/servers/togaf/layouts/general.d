@@ -26,7 +26,7 @@ class DTGFGeneralLayout : DMVCLayout {
 
     this.TGFPageHeader(
       H5Div(["page-header d-print-none"], 
-        H5Div(["container-xl"], 
+        UIMContainer.size("xl")( 
           UIMRow(["g-2 align-items-center"], 
             H5Div(["col"], 
               H5Div(["page-title"], "Empty page")
@@ -37,7 +37,7 @@ class DTGFGeneralLayout : DMVCLayout {
     );
     this.TGFPageBody(
       H5Div(["page-body"], 
-          H5Div(["container-xl"], 
+          UIMContainer.size("xl")( 
             // Content here
           )
         )
@@ -47,10 +47,10 @@ class DTGFGeneralLayout : DMVCLayout {
       H5Div(["navbar-expand-md"], 
         H5Div("navbar-menu", ["collapse navbar-collapse"],
             H5Div(["navbar navbar-light"], 
-            H5Div(["container-xl"],
+            UIMContainer.size("xl")(
               H5Ul(["navbar-nav"],       
                 UIMNavItem( 
-                  H5A(["nav-link"], ["href":"./index.html"], 
+                  UIMNavLink.link("./index.html")( 
                     UIMNavLinkIcon(["d-md-none d-lg-inline-block"]).icon("home"),
                     UIMNavLinkTitle.title("Home")
                   )
@@ -204,7 +204,7 @@ class DTGFGeneralLayout : DMVCLayout {
                   )
                 ),
                 UIMNavItem( 
-                  H5A(["nav-link"], ["href":"./form-elements.html"], 
+                  UIMNavLink.link("./form-elements.html")(
                     UIMNavLinkIcon(["d-md-none d-lg-inline-block"]).icon("checkbox"),
                     UIMNavLinkTitle.title("Form elements")
                   )
@@ -310,7 +310,7 @@ class DTGFGeneralLayout : DMVCLayout {
                   )
                 ),
                 UIMNavItem( 
-                  H5A(["nav-link"], ["href":"./icons.html"], 
+                  UIMNavLink.link("./icons.html")( 
                     UIMNavLinkIcon(["d-md-none d-lg-inline-block"]).icon("ghost"),
                     UIMNavLinkTitle.title("2681 icons")
                   )
@@ -330,8 +330,8 @@ class DTGFGeneralLayout : DMVCLayout {
               ),
               H5Div(["my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last"], 
                 H5Form(["action":"./", "method":"get", "autocomplete":"off", "novalidate":""], 
-                  H5Div(["input-icon"], 
-                    H5Span(["input-icon-addon"], tablerIcon("search")),
+                  UIMInputIcon( 
+                    UIMInputAddon.icon("search"),
                     UIMTextInput(["value":"", "placeholder":"Search…", "aria-label":"Search in website"]) 
                   )
                 )
@@ -344,9 +344,9 @@ class DTGFGeneralLayout : DMVCLayout {
 
     this.TGFNavbar(
       H5Header(["navbar navbar-expand-md navbar-light d-print-none"], 
-        H5Div(["container-xl"], 
+        UIMContainer.size("xl")( 
           H5Button(["navbar-toggler"], ["type":"button", "data-bs-toggle":"collapse", "data-bs-target":"#navbar-menu"], H5Span(["navbar-toggler-icon"])),
-          H5Div(["navbar-nav flex-row order-md-first"], 
+          UIMNavbarNav(["flex-row order-md-first"], 
             H5Div(["d-none d-md-flex"], 
               UIMNavLink(["px-0 hide-theme-dark"], ["href":"?theme=dark", "data-bs-toggle":"tooltip", "data-bs-placement":"bottom", "aria-label":"Enable dark mode"], 
                 tablerIcon("moon")),                
@@ -447,7 +447,7 @@ class DTGFGeneralLayout : DMVCLayout {
               H5Img(["navbar-brand-image"], ["src":"./static/logo.svg", "width":"110", "height":"32", "alt":"Tabler"])
             )
           ),
-          H5Div(["navbar-nav flex-row order-md-last"], 
+          UIMNavbarNav(["flex-row order-md-last"], 
             H5Div(["d-none d-md-flex"], 
               UIMNavLink(["px-0 hide-theme-dark"], ["href":"?theme=dark", "data-bs-toggle":"tooltip", "data-bs-placement":"bottom", "aria-label":"Enable dark mode"], 
                 tablerIcon("moon")),                
@@ -548,9 +548,9 @@ class DTGFGeneralLayout : DMVCLayout {
     );
 
     this.TGFFooter(
-      H5Footer(["footer footer-transparent d-print-none"], 
-        H5Div(["container-xl"], 
-          UIMRow([" text-center align-items-center flex-row-reverse"], 
+      UIMFooter.transparent(true)( 
+        UIMContainer.size("xl")( 
+          UIMRow(["text-center align-items-center flex-row-reverse"], 
             H5Div(["col-lg-auto ms-lg-auto"], 
               H5Ul(["list-inline list-inline-dots mb-0"], 
                 H5Li(["list-inline-item"], H5A(["link-secondary"], ["href":"./docs/index.html"], "Documentation")),
@@ -620,7 +620,7 @@ class DTGFGeneralLayout : DMVCLayout {
         H5Div(["page-wrapper"], 
           TGFPageHeader,
           H5Div(["page-body"], 
-            H5Div(["container-xl"], 
+            UIMContainer.size("xl")( 
               (this.layout ?  this.layout.render(controller, content, options) : content)
             )
           ),
